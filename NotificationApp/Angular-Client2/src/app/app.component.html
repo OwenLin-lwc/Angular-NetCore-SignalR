@@ -1,0 +1,22 @@
+<div class="layout-topbar">
+  <div class="fluid-container">
+    <div class="row">
+      <div class="col-md-10">
+        <div style="color:white" class="col-md-3">Angular 7 SignalR Notifications Client 2</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Message History</h2>
+      <ul>
+        <li *ngFor="let msg of messageHistory">
+          <div>{{msg.summary}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<p-toast [style]="{marginTop: '50px'}"></p-toast>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,29 @@
+<div class="layout-topbar">
+  <div class="fluid-container">
+    <div class="row">
+      <div class="col-md-10">
+        <div style="color:white" class="col-md-3">Angular 7 SignalR Notifications</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <label>Name: </label>
+  <input [(ngModel)]="inputName" placeholder="name" *ngIf="!authService.isLoggedIn" />
+  <button (click)="login()" *ngIf="!authService.isLoggedIn">Login</button>
+  <label *ngIf="authService.isLoggedIn">{{authService.user?.userName}}</label>
+  <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+</div>
+<p>{{message}}</p>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Message History</h2>
+    <ul>
+      <li *ngFor="let msg of signalRService.messageHistory">
+        <div>{{msg.summary}}</div>
+      </li>
+    </ul>
+  </div>
+</div>
+<p-toast [style]="{marginTop: '50px'}"></p-toast>
+<router-outlet></router-outlet>
